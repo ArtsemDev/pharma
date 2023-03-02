@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+HOME PAGE
+{% endblock %}
+
+{% block content %}
+  <div class="site-wrap">
+
+    {% include "shop/components/nav.html" %}
+
+    {% include "shop/components/header.html" %}
+
+    {% include "shop/components/popular_products.html" %}
+
+    {% include "shop/components/new_products.html" %}
+
+    {% include "shop/components/footer.html" %}
+
+  </div>
+{% endblock %}

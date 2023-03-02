@@ -1,0 +1,37 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+КРАМА
+{% endblock %}
+
+{% block content %}
+  <div class="site-wrap">
+
+    {% include "shop/components/nav.html" %}
+
+    {% include "shop/components/breadcrumbs.html" %}
+
+    <div class="site-section">
+      <div class="container">
+        
+        <div class="row">
+
+          {% include "shop/components/filters.html" %}
+
+        </div>
+
+        <div class="row">
+          {% for product in product_list %}
+            {% include "shop/components/product_card.html" %}
+          {% endfor %}
+        </div>
+
+          {% include "shop/components/paginator.html" %}
+
+      </div>
+    </div>
+
+    {% include "shop/components/footer.html" %}
+
+  </div>
+{% endblock %}
