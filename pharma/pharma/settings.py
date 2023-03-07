@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_REDIRECT_URL = '/shop/'
+LOGOUT_REDIRECT_URL = '/login/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
-    'shop.apps.ShopConfig'
+    'shop.apps.ShopConfig',
+    'registration.apps.RegistrationConfig'
 ]
 
 MIDDLEWARE = [

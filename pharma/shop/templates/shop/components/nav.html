@@ -14,38 +14,28 @@
           <ul class="site-menu js-clone-nav d-none d-lg-block">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="{% url 'shop_product_list' %}">Store</a></li>
-            <li class="has-children">
-              <a href="#">Dropdown</a>
-              <ul class="dropdown">
-                <li><a href="#">Supplements</a></li>
-                <li class="has-children">
-                  <a href="#">Vitamins</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Supplements</a></li>
-                    <li><a href="#">Vitamins</a></li>
-                    <li><a href="#">Diet &amp; Nutrition</a></li>
-                    <li><a href="#">Tea &amp; Coffee</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Diet &amp; Nutrition</a></li>
-                <li><a href="#">Tea &amp; Coffee</a></li>
-
-              </ul>
-            </li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="#">{{ user.username }}</a></li>
+            {% else %}
+            <li><a href="{% url 'signin' %}">Login</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>
+      {% if user.is_authenticated %}
       <div class="icons">
         <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-        <a href="cart.html" class="icons-btn d-inline-block bag">
+        <a href="{% url 'shop_cart' %}" class="icons-btn d-inline-block bag">
           <span class="icon-shopping-bag"></span>
-          <span class="number">2</span>
+          <span class="number">{{ cart_amount|default:"0" }}</span>
         </a>
         <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
             class="icon-menu"></span></a>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>

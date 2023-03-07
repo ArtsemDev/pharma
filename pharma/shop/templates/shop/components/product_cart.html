@@ -1,0 +1,10 @@
+<tr>
+  <td class="product-thumbnail">
+    <img src="{{ order_item.product.image.url }}" alt="Image" class="img-fluid">
+  </td>
+  <td class="product-name">
+    <h2 class="h5 text-black">{{ order_item.product.name }}</h2>
+  </td>
+  <td>${{ order_item.product.price }}</td>
+  <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+</tr>
