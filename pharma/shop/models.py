@@ -58,6 +58,7 @@ class Product(models.Model):
         null=False,
         blank=False
     )
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, default=1)
 
     def get_absolute_url(self):
         return reverse('shop_product_detail', kwargs={'slug': self.slug})
