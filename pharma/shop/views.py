@@ -10,6 +10,9 @@ class ProductListView(ListView):
     template_name = 'shop/shop.html'
     model = Product
     paginate_by = 3
+    #
+    # def get_queryset(self):
+    #     return self.model.filter(content__icontains=self.request.GET.get('q'))
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):

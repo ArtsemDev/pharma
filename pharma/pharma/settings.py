@@ -1,3 +1,4 @@
+
 """
 Django settings for pharma project.
 
@@ -18,10 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-lybp&+jmlk8-!x5g@9xs0n6k3a_phq^-wqb)9ra_xegvy7*gap'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -44,6 +42,7 @@ INSTALLED_APPS += [
     'shop.apps.ShopConfig',
     'registration.apps.RegistrationConfig',
     'rest_framework',
+    'rest_framework.authtoken',
     'api.apps.ApiConfig',
 ]
 
@@ -109,10 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-#     'PAGE_SIZE': 2
+#     'PAGE_SIZE': 2,
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication'
+#     ]
 # }
-# Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'ru'
 
@@ -135,3 +135,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EXPIRE_JWT_TOKEN = 10
+TOKEN_TYPE = 'Bearer'
+HTTP_HEADER = 'Authorization'
+ALGORITHM = 'HS256'
+
+# SECURITY WARNING: keep the secret key used in production secret!
